@@ -14,10 +14,12 @@ buttons.map(button => {
                     break;
                 }
             case '=':
-                if (display.innerText) {
+                try {
                     display.innerText = eval(display.innerText);
-                    break;
+                } catch {
+                    display.innerText = 'Error!';
                 }
+                break;
             default:
                 display.innerHTML = display.innerHTML + e.target.innerText;
         }
